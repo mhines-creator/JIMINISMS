@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JMNSM</title>
+
+</head>
+
+<body>
+
+
+
+
+    <div>
+
+        <textarea rows="20" cols="40" div id="output"> </textarea>
+    </div>
+
+
+
+    <button id="btn-get-jmnsm">GET JIMINISM</button>
+    <button id="btn-clear">Clear</button>
+
+
+
+
+</body>
+
+</html>
+
+<style>
+    input {
+        border-radius: 5px;
+    }
+
+    body {
+        background-image: linear-gradient(100deg, #dbecdb7d, #008f8033);
+        font-family: cursive;
+        font-size: 12px;
+        padding: 0px;
+    }
+
+
+
+    button {
+        transition: all 0.3s;
+        position: absolute;
+        height: 4rem;
+        width: 8rem;
+        font-family: 'Comic Sans MS';
+        font-weight: 900;
+        background-color: #f3f5f3;
+        box-shadow: 0px 4px 10px rgb(146 197 168 / 85%);
+        color: #00bb80;
+        ;
+        border: none;
+    }
+
+    button:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        border: 2px solid #808080;
+    }
+
+
+    #btn-get-jmnsm {
+        top: 30rem;
+        left: 50rem;
+    }
+
+    #btn-clear {
+        top: 35rem;
+        left: 10rem;
+    }
+
+
+
+    
+#output {
+    position: absolute;
+    top: 2rem;
+    left: 25rem;
+    background-image: linear-gradient(100deg, #f1e3da, #e0e8e0);
+    color: #290bcb;
+    font-weight: 700;
+    font-size: 1rem;
+    border-width: 0px;
+    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+    border-radius: 0px;
+    padding-left: 4rem;
+}
+
+
+ 
+</style>
+
+<script>
+
+       //---------------TEST CASE -----------------------    
+    const btnGetJMNSM = document.getElementById('btn-get-jmnsm');
+
+
+    const output = document.getElementById('output');
+    const btnClear = document.getElementById('btn-clear');
+
+
+
+const jmnsmArr = [
+    "item 1","item 2","item 3","item 4","item 5","item 6","item 7"
+]
+
+
+
+btnGetJMNSM.addEventListener('click', function () {
+    output.value='';
+    console.log('hello world');
+    const randomIndex = Math.floor(Math.random() * jmnsmArr.length);
+   // return jmnsmArr[randomIndex];
+
+    output.value = `\n\n${jmnsmArr[randomIndex]}`;
+});
+
+btnClear.addEventListener('click', function(){
+      output.value='';
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
