@@ -68,6 +68,27 @@
       border-radius: 6px;
     }
 
+    .output-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.output-row button {
+  flex: 0 0 auto;
+  width: 130px;
+  height: 3.5rem;
+}
+
+.output-row textarea {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+
     @keyframes slideIn {
       from {
         opacity: 0;
@@ -99,11 +120,14 @@
 
   <button id="btn-show-elements">IF YOU WOULD LIKE TO VIEW RANDOM JIMINISMS, CLICK HERE</button>
 
-  <div id="my-elements">
+<div id="my-elements">
+  <div class="output-row">
     <button id="btn-get-jmnsm">GET JIMINISM</button>
     <button id="btn-clear">Clear</button>
     <textarea id="output" readonly></textarea>
   </div>
+</div>
+
 
   <script>
     const btnShowElements = document.getElementById('btn-show-elements');
@@ -149,3 +173,4 @@
   </script>
 </body>
 </html>
+
