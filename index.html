@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -15,16 +15,20 @@
 
 
 
-    <div>
 
-        <textarea rows="20" cols="40" div id="output"> </textarea>
+
+
+
+
+
+
+    <button id="btn-show-elements">IF YOU WOULD LIKE TO VIEW RANDOM JIMINISMS, CLICK HERE</button>
+
+    <div id="my-elements">
+        <button id="btn-get-jmnsm">GET JIMINISM</button>
+        <button id="btn-clear">Clear</button>
+        <textarea rows="10" cols="40" div id="output"> </textarea>
     </div>
-
-
-
-    <button id="btn-get-jmnsm">GET JIMINISM</button>
-    <button id="btn-clear">Clear</button>
-
 
 
 
@@ -54,7 +58,7 @@
         font-family: 'Comic Sans MS';
         font-weight: 900;
         background-color: #f3f5f3;
-        box-shadow: 0px 4px 10px rgb(146 197 168 / 85%);
+     box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
         color: #00bb80;
         ;
         border: none;
@@ -67,73 +71,191 @@
 
 
     #btn-get-jmnsm {
-        top: 30rem;
-        left: 50rem;
+        top: 37rem;
+        left: 42rem;
+     
+        
+        
+     
     }
 
     #btn-clear {
-        top: 35rem;
-        left: 10rem;
+        top: 37rem;
+        left: 58rem;
+    }
+
+    #btn-show-elements {
+        top: 15rem;
+        left: 50rem;
+        height: 8rem;
+        width: 15rem;
     }
 
 
 
-    
-#output {
-    position: absolute;
-    top: 2rem;
-    left: 25rem;
-    background-image: linear-gradient(100deg, #f1e3da, #e0e8e0);
-    color: #290bcb;
-    font-weight: 700;
-    font-size: 1rem;
-    border-width: 0px;
-    box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
-    border-radius: 0px;
-    padding-left: 4rem;
-}
+
+    #output {
+        position: absolute;
+        top: 20rem;
+        left: 40rem;
+        background-image: linear-gradient(100deg, #f1e3da, #e0e8e0);
+        color: #290bcb;
+        font-weight: 700;
+        font-size: 1rem;
+        border-width: 0px;
+        box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+        border-radius: 0px;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        
+     
+        
+       
+    }
 
 
- 
+    @keyframes disappear {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            visibility: hidden;
+            /* Optional */
+        }
+    }
+
+
+
+    @keyframes slideFromXtoY {
+        from {
+            transform: translateX(-55rem);
+        }
+
+        to {
+            transform: translateX(0rem);
+        }
+    }
 </style>
 
 <script>
 
-       //---------------TEST CASE -----------------------    
+    //---------------TEST CASE -----------------------    
+    const btnShowElements = document.getElementById('btn-show-elements');
+
     const btnGetJMNSM = document.getElementById('btn-get-jmnsm');
-
-
     const output = document.getElementById('output');
     const btnClear = document.getElementById('btn-clear');
 
 
+    function hideElements() {
+       
+        output.style.display = 'none';
+       btnGetJMNSM.style.display = 'none';
+        btnClear.style.display = 'none';
+    };
 
-const jmnsmArr = [
-    "item 1","item 2","item 3","item 4","item 5","item 6","item 7"
-]
+    function slideInElements(){
+ output.style.animation ="slideFromXtoY 1s ease-out forwards";
+ btnGetJMNSM.style.animation ="slideFromXtoY 1.5s ease-out forwards";
+ btnClear.style.animation ="slideFromXtoY 1.5s ease-out forwards";
+
+   output.style.display = '';
+       btnGetJMNSM.style.display = '';
+        btnClear.style.display = '';
+
+    }
+
+    hideElements();
+
+    function delay(ms) {
+        return new Promise(function (resolve) {
+            setTimeout(resolve, ms);
+        });
+    };
+
+ //   hideElements();
+
+    const jmnsmArr = [
+        "Jiminism #1: only 3 people on the planet know what Jiminism #1 is. 2 of them are known, the 3rd is yet to be found. Historians speculate she knows the origins of the “steel box”. She does not know how or why she has this knowledge", 
+        
+        "Jiminism #2: if whatsapp were on the evolution flowchart, it would be 2 x organisms behind the primate", 
+        
+        "Jiminism #62: When attending a political protest, regardless of political stance, present as iron man wearing a Viking costume. Raise a sword and yell, the masses will follow", 
+        
+        "Jiminism #57: Hawaii calls them Jimmy shirts", 
+        
+        "Jiminism #46: the order in which Jiminisms are realized by mortals is not chronological. Therefor the numbers are arbitrary and of no consequence, but they always make sense. For example, this is obviously Jiminism #46 and was founded before Jiminism #11", 
+        
+        "Jiminism #11: A kilt coupled with a fanny pack crafted from bison scrotum is uber cool", 
+        
+        "Jiminism #70: Ducks and T-Rexes co-existed, prove me wrong",
+        
+        "Jiminism #19: As 90% of communication is through body language, speaking the same language on a date is overkill",
+
+        "Jiminism #31: Is die hard a Christmas move? Unclear. What is clear is ducks are an appropriate Christmas decoration",
+
+        "Jiminism #26: In a world where no one ever dies or gets married, pants are for weddings and funerals. For everything else, shorts will do. ",
+
+        "Jiminism #44: With sufficient thrust pigs do fly, however, one must be mindful they also land "
+    ];
 
 
 
-btnGetJMNSM.addEventListener('click', function () {
-    output.value='';
-    console.log('hello world');
-    const randomIndex = Math.floor(Math.random() * jmnsmArr.length);
-   // return jmnsmArr[randomIndex];
 
-    output.value = `\n\n${jmnsmArr[randomIndex]}`;
-});
+    btnShowElements.addEventListener('click', async function () {
+        console.log('hello world');
 
-btnClear.addEventListener('click', function(){
-      output.value='';
-});
+        btnShowElements.style.animation = "disappear 1s ease forwards";
+      await  delay(1000);
+
+      slideInElements();
 
 
 
+    
+          
+
+
+         //     animation:slideFromMinus5To30     ;
+
+
+    })
+
+
+
+    btnGetJMNSM.addEventListener('click', function () {
+        output.value = '';
+        console.log('hello world');
+        const randomIndex = Math.floor(Math.random() * jmnsmArr.length);
+        // return jmnsmArr[randomIndex];
+
+        output.value = `\n\n${jmnsmArr[randomIndex].toUpperCase()}`;
+    });
+
+    btnClear.addEventListener('click', function () {
+        output.value = '';
+    });
 
 
 
 
 
+
+
+    /*
+    .slide-in-custom {
+      animation: 
+    }
+    
+    
+    
+    .fade-out {
+      animation: 
+    }
+    
+    */
 
 
 
